@@ -8,7 +8,7 @@ Created on Wed Mar  8 09:39:47 2023
 #fonction qui crée utilise la tracto du whole brain et ajoute des ROI d'exclusion/d'inclusion
 
 
-from TIME.utils import tract_to_ROI, get_streamline_density
+#from TIME.utils import tract_to_ROI, get_streamline_density
 from dipy.io.streamline import load_tractogram, save_trk
 import nibabel as nib
 import numpy as np
@@ -22,19 +22,17 @@ from dipy.tracking.utils import target
 
 def match_tracto(patientList,root,include_list,exclude_list ):#          ,dilate):
     for i in patientList:
+        print(i)
         folder=i+"/"
         filename=i
-        pathway=root+folder+"raw/"+filename
+        pathway=root+folder+"dMRI/raw/"+filename
         data, affine, img = load_nifti(pathway+"_raw_dmri.nii.gz", return_img=True)
+        
         
         tract_file=root+folder+"_whole_brain_"+filename+".trk"
         trk=load_tractogram(tract_file,'same')
         
         streamlines=trk.streamlines
-        
-        
-        #white_mat_l=nib.load(include_list[0]).get_fdata()
-        #streamlines=target(streamlines,affine,white_mat_l,include=True)
         
         
         for roi_in in include_list:
@@ -54,10 +52,19 @@ def match_tracto(patientList,root,include_list,exclude_list ):#          ,dilate
         
 
 
-patientList=["H_3","V_2"]#,"C_1"]
+patientList=["V_3","V_4","V_5","V_6","V_7","V_8","V_9","V_10","V_11",
+             "V_13","V_14","V_15","V_16","V_17","V_18","V_19","V_20",
+             "V_21","V_22","V_23","V_24","V_25","V_26","V_27","V_28",
+             "V_29","V_30","V_31","V_32","V_33","V_34","V_35","V_36",
+             "V_37","V_38","V_39","V_40","V_41","V_42","V_43","V_44",
+             "V_45","V_46","V_47","V_48","V_49","V_50","V_51","V_52",
+             "V_53","C_0","C_2","C_3","C_4","C_5","C_6","C_7","C_8",
+             "C_9","C_10","C_11","C_12","H_0","H_1","H_2","H_3","H_4","H_5","H_6"]
+
 
 
 root_cluster="/CECI/proj/pilab/PermeableAccess/vertige_LEWuQhzYs9/Patients/"
+
 
 
 
