@@ -19,6 +19,9 @@ from dipy.tracking.utils import target
 
 
 
+#fonction qui prend en argument patientList = une liste de patient string , 
+#                                      root = string adresse, include_list = liste (string) de ROI,
+#                                      exclude_list = liste(string) de ROI 
 
 def match_tracto(patientList,root,include_list,exclude_list ):#          ,dilate):
     for i in patientList:
@@ -52,6 +55,10 @@ def match_tracto(patientList,root,include_list,exclude_list ):#          ,dilate
         
 
 
+
+
+
+
 patientList=["V_3","V_4","V_5","V_6","V_7","V_8","V_9","V_10","V_11",
              "V_13","V_14","V_15","V_16","V_17","V_18","V_19","V_20",
              "V_21","V_22","V_23","V_24","V_25","V_26","V_27","V_28",
@@ -63,18 +70,16 @@ patientList=["V_3","V_4","V_5","V_6","V_7","V_8","V_9","V_10","V_11",
 
 
 
-root_cluster="/CECI/proj/pilab/PermeableAccess/vertige_LEWuQhzYs9/Patients/"
-
-
+#root_cluster="/CECI/proj/pilab/PermeableAccess/vertige_LEWuQhzYs9/Patients/"
 
 
 for patient in patientList:
 
 
-    exclude_list=["/CECI/proj/pilab/PermeableAccess/vertige_LEWuQhzYs9/Patients/"+patient+"/tronc_cerebral.nii.gz"]
+    exclude_list=[root_cluster+patient+"/tronc_cerebral.nii.gz"]
 
-    include_list=["/CECI/proj/pilab/PermeableAccess/vertige_LEWuQhzYs9/Patients/"+patient+"/Left_wm_natif.nii.gz",
-              "/CECI/proj/pilab/PermeableAccess/vertige_LEWuQhzYs9/Patients/"+patient+"/Right_wm_natif.nii.gz"
+    include_list=[root_cluster+patient+"/Left_wm_natif.nii.gz",
+              root_cluster+patient+"/Right_wm_natif.nii.gz"
               ]
 
     match_tracto(patientList, root_cluster, include_list, exclude_list)
