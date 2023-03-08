@@ -208,8 +208,10 @@ def apply_transform(file_path: str, mapping, static_file: str = '',
         transformed = mapping.transform(moving_data)
 
     if binary:
-        transformed[transformed > binary_thresh] = 1
-        transformed[transformed <= binary_thresh] = 0
+       # transformed[transformed > binary_thresh] = 1
+        #transformed[transformed <= binary_thresh] = 0
+  
+        transformed=np.where(transformed>= binary_thresh,1,0)
 
     if len(output_path) > 0:
 
