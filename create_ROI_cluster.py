@@ -61,6 +61,7 @@ ROI_list_cluster=[atlas_root_cluster +"/mni_prob_Occipital_Lobe.nii.gz",
 name_list=["planum_temporale","pole_occipital"]
 threshold=0.5
 
+#0.5 value by default of threshold if 90 does not work
 create_ROI(patientList, root_cluster, ROI_list_cluster, name_list,threshold)
     
 
