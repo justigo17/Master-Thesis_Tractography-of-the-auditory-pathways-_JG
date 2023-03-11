@@ -58,7 +58,7 @@ ROI_list_cluster=[atlas_root_cluster +"/mni_prob_Occipital_Lobe.nii.gz",
           atlas_root_cluster +"/harvardoxford-cortical_prob_Planum_Temporale.nii.gz"]
 
 
-name_list=["planum_temporale","pole_occipital"]
+name_list=["pole_occipital","planum_temporale",]
 threshold=0.5
 
 #0.5 value by default of threshold if 90 does not work
