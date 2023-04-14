@@ -22,9 +22,11 @@ from scipy import stats
 import seaborn as sns
 
 
-data = pd.read_excel ('C:/Users/joujo/Documents/Master_Thesis/PatientDeaf/PatientCorrel.xlsx')
+#data = pd.read_excel ('C:/Users/joujo/Documents/Master_Thesis/PatientDeaf/PatientCorrel.xlsx')
 
 data2=pd.read_excel('C:/Users/joujo/Documents/Master_Thesis/PatientDeaf/Correlation2emepart.xlsx')
+
+data = pd.read_excel("C:/Users/joujo/Documents/Master_Thesis/Prediction/Correlation.xlsx")
 print(data2)
 df = pd.DataFrame(data2)
 print(df)
